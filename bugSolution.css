@@ -1,0 +1,19 @@
+The solution involves carefully adjusting the CSS specificity to ensure the desired pseudo-element styles are applied.  One way to fix this is to remove the conflicting selector, or make the `div::before` selector more specific, ensuring its specificity is higher than the conflicting class selector's specificity.
+
+Here's a corrected version:
+
+```css
+div {
+  color: blue;
+}
+
+/*Increased specificity by adding an id selector.  This is one approach.  Removing the conflicting selector is another.*/
+#myDiv::before {
+  content: "Hello!";
+  color: red;
+}
+
+<div id="myDiv" class="specific-class">This is some text</div>
+```
+
+Alternatively, remove `.specific-class::before` completely if it's not needed.
