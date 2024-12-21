@@ -1,0 +1,18 @@
+The following CSS code snippet demonstrates an uncommon issue where a pseudo-element's content is unexpectedly not displayed due to incorrect specificity or an unexpected cascade of styles.  The :before pseudo-element should add the text "Hello!" before the content of the element, but does not due to the conflicting specificity of another selector.
+
+```css
+div {
+  color: blue;
+}
+
+div::before {
+  content: "Hello!";
+  color: red;
+}
+
+.specific-class::before {
+  content: ""; /* Empties the content by setting it to an empty string */
+}
+
+<div class="specific-class">This is some text</div>
+```
